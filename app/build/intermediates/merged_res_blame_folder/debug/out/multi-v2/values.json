@@ -1,0 +1,62 @@
+{
+    "logs": [
+        {
+            "outputFile": "com.chukie99.logviewer.app-mergeDebugResources-2:/values/values.xml",
+            "map": [
+                {
+                    "source": "C:\\Users\\SOPIAN\\tmp_log_viewer\\app\\src\\main\\res\\values\\themes.xml",
+                    "from": {
+                        "startLines": "1",
+                        "startColumns": "4",
+                        "startOffsets": "17",
+                        "endLines": "4",
+                        "endColumns": "12",
+                        "endOffsets": "229"
+                    },
+                    "to": {
+                        "startLines": "7",
+                        "startColumns": "4",
+                        "startOffsets": "260",
+                        "endLines": "10",
+                        "endColumns": "12",
+                        "endOffsets": "469"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\SOPIAN\\tmp_log_viewer\\app\\src\\main\\res\\values\\strings.xml",
+                    "from": {
+                        "startLines": "1",
+                        "startColumns": "4",
+                        "startOffsets": "17",
+                        "endColumns": "47",
+                        "endOffsets": "60"
+                    },
+                    "to": {
+                        "startLines": "6",
+                        "startColumns": "4",
+                        "startOffsets": "212",
+                        "endColumns": "47",
+                        "endOffsets": "255"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\SOPIAN\\tmp_log_viewer\\app\\src\\main\\res\\values\\colors.xml",
+                    "from": {
+                        "startLines": "3,1,2,4",
+                        "startColumns": "4,4,4,4",
+                        "startOffsets": "95,17,55,137",
+                        "endColumns": "40,36,38,39",
+                        "endOffsets": "131,49,89,172"
+                    },
+                    "to": {
+                        "startLines": "2,3,4,5",
+                        "startColumns": "4,4,4,4",
+                        "startOffsets": "55,96,133,172",
+                        "endColumns": "40,36,38,39",
+                        "endOffsets": "91,128,167,207"
+                    }
+                }
+            ]
+        }
+    ]
+}

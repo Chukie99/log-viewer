@@ -1,0 +1,14 @@
+com.chukie99.logviewer:string/app_name = 0x7f040000
+com.chukie99.logviewer:layout/activity_main = 0x7f030000
+com.chukie99.logviewer:id/status = 0x7f020006
+com.chukie99.logviewer:style/Theme.LogViewer = 0x7f050000
+com.chukie99.logviewer:id/btnShare = 0x7f020003
+com.chukie99.logviewer:color/bg = 0x7f010001
+com.chukie99.logviewer:id/filterInput = 0x7f020004
+com.chukie99.logviewer:id/btnClear = 0x7f020001
+com.chukie99.logviewer:id/logView = 0x7f020005
+com.chukie99.logviewer:color/error = 0x7f010003
+com.chukie99.logviewer:id/btnOpen = 0x7f020002
+com.chukie99.logviewer:color/card = 0x7f010002
+com.chukie99.logviewer:id/btnCatch = 0x7f020000
+com.chukie99.logviewer:color/accent = 0x7f010000

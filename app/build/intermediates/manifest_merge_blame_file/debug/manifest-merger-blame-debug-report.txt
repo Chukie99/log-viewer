@@ -1,0 +1,44 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.chukie99.logviewer"
+4    android:versionCode="2"
+5    android:versionName="1.0.1" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="24"
+9        android:targetSdkVersion="34" />
+10
+11    <uses-permission android:name="android.permission.READ_LOGS" />
+11-->C:\Users\SOPIAN\tmp_log_viewer\app\src\main\AndroidManifest.xml:3:5-68
+11-->C:\Users\SOPIAN\tmp_log_viewer\app\src\main\AndroidManifest.xml:3:22-65
+12
+13    <application
+13-->C:\Users\SOPIAN\tmp_log_viewer\app\src\main\AndroidManifest.xml:4:5-8:19
+14        android:allowBackup="true"
+14-->C:\Users\SOPIAN\tmp_log_viewer\app\src\main\AndroidManifest.xml:4:84-110
+15        android:debuggable="true"
+16        android:extractNativeLibs="false"
+17        android:label="Log Viewer"
+17-->C:\Users\SOPIAN\tmp_log_viewer\app\src\main\AndroidManifest.xml:4:18-44
+18        android:theme="@style/Theme.LogViewer" >
+18-->C:\Users\SOPIAN\tmp_log_viewer\app\src\main\AndroidManifest.xml:4:45-83
+19        <activity
+19-->C:\Users\SOPIAN\tmp_log_viewer\app\src\main\AndroidManifest.xml:5:9-7:20
+20            android:name="com.chukie99.logviewer.MainActivity"
+20-->C:\Users\SOPIAN\tmp_log_viewer\app\src\main\AndroidManifest.xml:5:19-47
+21            android:exported="true" >
+21-->C:\Users\SOPIAN\tmp_log_viewer\app\src\main\AndroidManifest.xml:5:48-71
+22            <intent-filter>
+22-->C:\Users\SOPIAN\tmp_log_viewer\app\src\main\AndroidManifest.xml:6:13-154
+23                <action android:name="android.intent.action.MAIN" />
+23-->C:\Users\SOPIAN\tmp_log_viewer\app\src\main\AndroidManifest.xml:6:28-79
+23-->C:\Users\SOPIAN\tmp_log_viewer\app\src\main\AndroidManifest.xml:6:36-77
+24
+25                <category android:name="android.intent.category.LAUNCHER" />
+25-->C:\Users\SOPIAN\tmp_log_viewer\app\src\main\AndroidManifest.xml:6:79-138
+25-->C:\Users\SOPIAN\tmp_log_viewer\app\src\main\AndroidManifest.xml:6:89-136
+26            </intent-filter>
+27        </activity>
+28    </application>
+29
+30</manifest>

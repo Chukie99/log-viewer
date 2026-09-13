@@ -39,28 +39,42 @@ public class MainActivity extends Activity {
         btnCatch.setOnClickListener(v -> {
             String filter = filterInput.getText().toString().trim();
             try {
-                // -d dump, *:E only errors, AndroidRuntime:E = crash stack
-                Process p = Runtime.getRuntime().exec(new String[]{"logcat","-d","AndroidRuntime:E","*:S"});
-                BufferedReader br = new BufferedReader(new InputStreamReader(p.getInputStream()));
+                // Try crash buffer first, then main/system — Android 10 needs broader
+                String[] cmds = {
+                    "logcat -d -b crash *:E",
+                    "logcat -d -b main -b system -b crash *:E",
+                    "logcat -d *:E",
+                    "logcat -d -t 800"
+                };
                 StringBuilder sb = new StringBuilder();
-                String line;
                 int count=0;
-                while ((line=br.readLine())!=null) {
-                    if (filter.isEmpty() || line.toLowerCase().contains(filter.toLowerCase())) {
-                        sb.append(line).append("\n"); count++;
-                    }
+                String lastOut="";
+                for (String cmd : cmds) {
+                    try {
+                        Process pp = Runtime.getRuntime().exec(cmd.split(" "));
+                        BufferedReader brr = new BufferedReader(new InputStreamReader(pp.getInputStream()));
+                        StringBuilder tmp = new StringBuilder();
+                        String l; int c=0;
+                        while ((l=brr.readLine())!=null) {
+                            if (filter.isEmpty() || l.toLowerCase().contains(filter.toLowerCase())) { tmp.append(l).append("\n"); c++; }
+                        }
+                        brr.close();
+                        lastOut = tmp.toString();
+                        if (c>0) { sb = tmp; count=c; break; }
+                        // keep last non-empty for debug
+                        if (tmp.length()>sb.length()) sb = tmp;
+                    } catch (Exception ignore) {}
                 }
-                br.close();
-                // if empty, try broader *:E
-                if (count==0) {
-                    Process p2 = Runtime.getRuntime().exec(new String[]{"logcat","-d","*:E"});
-                    BufferedReader br2 = new BufferedReader(new InputStreamReader(p2.getInputStream()));
-                    StringBuilder sb2 = new StringBuilder();
-                    while ((line=br2.readLine())!=null) {
-                        if (filter.isEmpty() || line.toLowerCase().contains(filter.toLowerCase())) sb2.append(line).append("\n");
-                    }
-                    br2.close();
-                    if (sb2.length()>0) sb = sb2;
+                // fallback: raw dump without filter if still empty but log exists
+                if (count==0 && sb.length()==0) {
+                    try {
+                        Process pp = Runtime.getRuntime().exec(new String[]{"logcat","-d","-t","500"});
+                        BufferedReader brr = new BufferedReader(new InputStreamReader(pp.getInputStream()));
+                        String l; StringBuilder raw=new StringBuilder();
+                        while((l=brr.readLine())!=null) raw.append(l).append("\n");
+                        brr.close();
+                        if (raw.length()>0) sb = raw;
+                    } catch(Exception ignore){}
                 }
                 String out = sb.toString();
                 if (out.trim().isEmpty()) {
